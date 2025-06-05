@@ -26,28 +26,40 @@ public class TextExtractor {
         Matcher peselMatcher = peselPattern.matcher(text);
         String pesel = peselMatcher.find() ? peselMatcher.group(1) : "";
 
-        Pattern[] namePatterns = new Pattern[]{
-                Pattern.compile("\\bimi[eę]\\s*i\\s*nazwisko\\s*:?\\s*=*\\s*([\\p{L}]+)\\s+([\\p{L}]+)", Pattern.CASE_INSENSITIVE),
-                Pattern.compile("\\bnazwisko\\s*i\\s*imi[eę]\\s*:?\\s*=*\\s*([\\p{L}]+)\\s+([\\p{L}]+)", Pattern.CASE_INSENSITIVE),
-                Pattern.compile("\\bimi[eę]\\s*:?\\s*([\\p{L}]+)\\s+nazwisko\\s*:?\\s*([\\p{L}]+)", Pattern.CASE_INSENSITIVE),
-                Pattern.compile("\\bnazwisko\\s*:?\\s*([\\p{L}]+)\\s+imi[eę]\\s*:?\\s*([\\p{L}]+)", Pattern.CASE_INSENSITIVE)
-        };
+        List<NamePatternInfo> namePatterns = List.of(
+                new NamePatternInfo(Pattern.compile("\\bimi[eę]\\s*i\\s*nazwisko\\s*:?\\s*=*\\s*([\\p{L}]+)\\s+([\\p{L}]+)", Pattern.CASE_INSENSITIVE), 1, 2),
+                new NamePatternInfo(Pattern.compile("\\bnazwisko\\s*i\\s*imi[eę]\\s*:?\\s*=*\\s*([\\p{L}]+)\\s+([\\p{L}]+)", Pattern.CASE_INSENSITIVE), 2, 1),
+                new NamePatternInfo(Pattern.compile("\\bimi[eę]\\s*:?\\s*([\\p{L}]+)\\s+nazwisko\\s*:?\\s*([\\p{L}]+)", Pattern.CASE_INSENSITIVE), 1, 2),
+                new NamePatternInfo(Pattern.compile("\\bnazwisko\\s*:?\\s*([\\p{L}]+)\\s+imi[eę]\\s*:?\\s*([\\p{L}]+)", Pattern.CASE_INSENSITIVE), 2, 1)
+        );
 
         String imie = "";
         String nazwisko = "";
-        for (Pattern namePattern : namePatterns) {
-            Matcher matcher = namePattern.matcher(text);
+        for (NamePatternInfo info : namePatterns) {
+            Matcher matcher = info.pattern.matcher(text);
             if (matcher.find()) {
-                imie = matcher.group(1);
-                nazwisko = matcher.group(2);
+                imie = matcher.group(info.imieGroup);
+                nazwisko = matcher.group(info.nazwiskoGroup);
                 break;
             }
         }
 
         if (!pesel.isEmpty() || (!imie.isEmpty() && !nazwisko.isEmpty())) {
-            results.add(new PersonData(nazwisko, imie, pesel));
+            results.add(new PersonData(imie, nazwisko, pesel));
         }
 
         return results;
+    }
+}
+
+class NamePatternInfo {
+    Pattern pattern;
+    int imieGroup;
+    int nazwiskoGroup;
+
+    NamePatternInfo(Pattern pattern, int imieGroup, int nazwiskoGroup) {
+        this.pattern = pattern;
+        this.imieGroup = imieGroup;
+        this.nazwiskoGroup = nazwiskoGroup;
     }
 }
