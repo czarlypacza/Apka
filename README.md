@@ -18,7 +18,7 @@
    ```
    npm run dev
    ```
-4. Serwer deweloperski uruchomi sie domyślnie na porcie 5173.
+4. Serwer deweloperski uruchomi sie domyślnie na porcie 5173. 
 
 ## 4. Uruchomienie backendu (Spring)
 1. Otwórz konsolę w folderze `.\Serwis_PDF` (klik prawym przyciskiem myszy na folder i "otworz w terminalu")    
@@ -34,3 +34,14 @@
    ```
    http://localhost:5173
    ```
+
+## 6. Rozwiązywanie problemów z PowerShell
+Jeżeli otrzymujesz błąd o blokowaniu skryptów przy wykonywaniu punktu 3 i 4, przed wykonaniem komend z tych punktów wykonaj tą komende (może to wymagac uruchomienia terminala jako administrator):
+```
+Set-ExecutionPolicy RemoteSigned -Scope Process
+```
+
+Można równiez w nowym oknie terminala uruchomionego jako administrator wykonać tą komendę (UWAGA! wprowadza ona trwałe zmiany w komputerze):
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
