@@ -1,0 +1,32 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.PDFUploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 7em;
+}
+
+.card {
+
+  padding: 2em;
+  border-radius: 30px;
+  background: #242424;
+  box-shadow:  24px 24px 49px #1c1c1c,
+              -24px -24px 49px #2c2c2c;
+}
+
+#excelPathInput{
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0.5em;
+  margin: 0.5em;
+}
