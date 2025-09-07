@@ -1,0 +1,185 @@
+persondata:
+  |-
+    Wyodrębnij z poniższego tekstu wszystkie dane potrzebne do utworzenia obiektu PersonData. Jeśli znajdziesz oczywiste literówki lub błędy w danych (np. imię 'mrek' zamiast 'Marek'), popraw je. Jeżeli niektóre wartości nie są podane dosłownie, spróbuj je wywnioskować na podstawie analizy tekstu, ale nie zgaduj i nie generuj danych bez uzasadnienia w treści. Odpowiadaj wyłącznie w formacie JSON, zgodnie z poniższym wzorem. Jeśli nie możesz znaleźć lub wywnioskować jakiejś wartości, ustaw ją na null. Przykład odpowiedzi:
+    {
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "pesel": "12345678901",
+      "numer_telefonu": "123456789",
+      "ryzykoZgonu": 1,
+      "dataPrzyjecia": "2024-06-01",
+      "szpital": "Szpital Miejski",
+      "oddzial": "Kardiologia",
+      "lekarzProwadzacy": "dr Anna Nowak",
+      "miejsceHospitalizacji": 0,
+      "dataWypisu": "2024-06-10",
+      "czasHospitalizacji": 9,
+      "plec": 0,
+      "wiek": 45,
+      "masaCiala": 80.5,
+      "wzrost": 180.0,
+      "bmi": 24.8
+    }
+    Odpowiadaj tylko JSON, bez żadnych dodatkowych komentarzy ani tekstu.
+persondataextended:
+  |-
+    Wyodrębnij z poniższego tekstu wszystkie dane potrzebne do utworzenia obiektu PersonDataExtended. W przykładzie poniżej przy każdym polu znajduje się krótki komentarz wyjaśniający możliwe wartości, skopiowany bezpośrednio z opisu pól w formularzu. W odpowiedzi nie mogą pojawiać się żadne literówki w nazwach pól – nazwy muszą być identyczne jak w poniższym przykładzie (np. "udarNiedokrwienny6mies", a nie "udzarNiedokrwienny6mies"). Jeśli znajdziesz oczywiste literówki lub błędy w danych, popraw je. Jeżeli niektóre wartości nie są podane dosłownie, spróbuj je wywnioskować na podstawie analizy tekstu, ale nie zgaduj i nie generuj danych bez uzasadnienia w treści. Odpowiadaj wyłącznie w formacie JSON, zgodnie z poniższym wzorem. Jeśli nie możesz znaleźć lub wywnioskować jakiejś wartości, ustaw ją na null. Przykład odpowiedzi:
+    {
+      "lastName": "Kowalski", // Nazwisko
+      "firstName": "Jan", // Imię
+      "pesel": "12345678901", // PESEL
+      "czasTrwaniaObjawow": "12h", // Czas trwania objawów [w godzinach (h) lub dniach (dni)]
+      "nzk": 0, // Zatrzymanie krążenia (NZK) [0-nie; 1-tak]
+      "wstrzas": 1, // Wstrząs [0-nie; 1-tak]
+      "omdlenie": 0, // Omdlenie/Zasłabnięcie [0-nie; 1-tak]
+      "dusznosc": 1, // Duszność [0-nie; 1-tak]
+      "bolWKlatce": 1, // Ból w klatce piersiowej [0-nie; 1-tak]
+      "zmniejszenieTolerancji": 1, // Zmniejszenie tolerancji wysiłku/Osłabienie [0-nie; 1-tak]
+      "kaszel": 0, // Kaszel [0-nie; 1-tak]
+      "krwioplucie": 0, // Krwioplucie [0-nie; 1-tak]
+      "zaburzeniaSwiadomosci": 0, // Zaburzenia świadomości [0-nie; 1-tak]
+      "inneObjawy": "brak", // Inne objawy [proszę o wypisanie innych objawów, które udało się zidentyfikować w Karcie Informacyjnej]
+      "chorobyWspolistniejace": "nadciśnienie, cukrzyca", // Choroby współistniejące [tekst]
+      "zakrzepicaAktualna": 0, // Aktualna zakrzepica żył głębokich kończyn dolnych [0-nie; 1- tak]
+      "lokalizacjaZakrzepu": "brak", // Lokalizacja zakrzepu w żyłach głębokich kończyn dolnych [tekst]
+      "zakrzepicaProksymalna": 0, // Zakrzepica proksymalna, czyli dotycząca żył podkolanowych, żył udowych, żył biodrowych lub żyły głównej dolnej [0-nie, 1- tak]
+      "zatorowoscPlucnaWPrzeszlosci": 0, // Zatorowość płucna w przeszłości [0- nie; 1-tak]
+      "zakrzepicaWPrzeszlosci": 0, // Zakrzepica żył głębokich kończyn dolnych w przeszłości [0-nie, 1 - tak]
+      "alloplastyka": 0, // Zabieg alloplastyki / endoprotezoplastyki stawu biodrowego lub kolanowego [0-nie, 1 - tak]
+      "zlamanie": 0, // Złamanie kości kończyny dolnej [0-nie, 1 - tak]
+      "powaznyUraz6mies": 0, // Poważny uraz w ciągu ostatnich 6 miesięcy [0-nie, 1 - tak]
+      "urazRdzenia": 0, // Uraz rdzenia kręgowego w przeszłości [0-nie, 1 - tak]
+      "hospitalizacjaMigotanie12mies": 0, // Hospitalizacja z powodu migotania przedsionków lub trzepotania przedsionków lub przewlekłej niewydolności serca w ciągu ostatnich 12 miesięcy[0-nie, 1 - tak]
+      "zawal3mies": 0, // Zawał mięśnia sercowego w ciągu ostatnich 3 miesięcy [0-nie, 1 - tak]
+      "artroskopia6mies": 0, // Artroskopia stawu kolanowego w ciągu ostatnich 6 miesięcy [0-nie, 1 - tak]
+      "antykoncepcja": 0, // Przyjmowanie doustnej antykoncepcji [0-nie, 1 - tak]
+      "hormonalnaTerapia": 0, // Przyjmowanie hormonalnej terapii zastępczej [0-nie, 1 - tak]
+      "inVitro12mies": 0, // Procedura in vitro w ciągu ostatnich 12 miesięcy [0-nie, 1 - tak]
+      "poloz": 0, // Połóg (poród / cięcie cesarskie w ciągu ostatnich 6 tygodni) [0-nie, 1 - tak]
+      "przetoczenieKKCzMiesiac": 0, // Przetoczenie koncentratu krwinek czerwonych (KKCz) w ciągu ostatniego miesiąca [0-nie, 1 - tak]
+      "erytropoezaMiesiac": 0, // Podawanie czynników stymulujących erytropoezę w ciągu ostatniego miesiąca [0-nie, 1 - tak]
+      "cewnikCentralny": 0, // Wkłucie centralne lub cewnik centralny (np. do karmienia pozajelitowego / chemioterapii) [0-nie, 1 - tak]
+      "elektrodyZylne": 0, // Elektrody w układzie żylnym (np. od rozrusznika serca / kardiostymulatora) [0-nie, 1 - tak]
+      "zakrzepicaPowierzchowna": 0, // Aktywna zakrzepica żył powierzchownych kończyn dolnych [0-nie, 1 - tak]
+      "trombofilia": 0, // Trombofilia (zespół antyfosfolipidowy, mutacja - czynnik V Leiden, polimorfizm genu protrombiny) [0-nie, 1 - tak]
+      "niewydolnoscSerceTyp": 0, // Przewlekła niewydolność serca [0-nie, 1 - niewydolność serca z obniżoną frakcją - HFrEF; 2 - niewydolność serca z zachowaną frakcją - HFpEF]
+      "przewleklaChorobaOddechowa": 0, // Przewlekła choroba układu oddechowego (POChP, choroby śródmiąższowe) [0-nie, 1 - tak]
+      "infekcjaTyp": 0, // Infekcja [0-nie, 1 - zapalenie płuc; 2 - zakażenie układu moczowego; 3 - biegunka infekcyjna]
+      "chZapJelit": 0, // ch. zapalna jelit [choroba Leśniowskiego-Crohna, wrzodziejące zapalenie jelita grubego] [0-nie, 1 - tak]
+      "nowotworZPrzerzutami": 0, // Nowotwór złośliwy z przerzutami / rozsiany proces nowotworowy [0-nie, 1 - tak]
+      "chemioterapia": 0, // Pacjent w trakcie chemioterapii [0-nie, 1 - tak]
+      "chorobyAutoimmunizacyjne": 0, // Choroby autoimmunizacyjne (reumatoidalne zapalenie stawów, toczeń, twardzina układowa,...) [0-nie, 1 - tak]
+      "udarMozguNiedowlady": 0, // Udar mózgu z niedowładami (niedokrwienny lub krwotoczny) [0-nie, 1 - tak]
+      "unieruchomienieLozko3dni": 0, // Unieruchomienie w łóżku >3dni [0-nie, 1 - tak]
+      "unieruchomieniePodroz4h": 0, // Unieruchomienie bo długa podróż >4h [0-nie, 1 - tak]
+      "wiek80plus": 0, // Wiek > 80 [0-nie, 1 - tak]
+      "otylosc": 0, // Otyłość [0-nie, 1 tak] (można rozstrzygnąć na podstawie BMI>40)
+      "nadcisnienieTetnicze": 0, // Nadciśnienie tętnicze [0-nie, 1 - tak]
+      "cukrzyca": 0, // Cukrzyca [0-nie, 1 - tak]
+      "niewydolnoscZylna": 0, // Niewydolność żylna / żylaki żył kończyn dolnych [0-nie, 1 - tak]
+      "ciaza": 0, // Ciąża [0-nie, 1 - tak]
+      "chirurgiaLaparoskopowaMiesiac": 0, // Chirurgia laparoskopowa w ciągu ostatniego miesiąca [0-nie, 1 - tak]
+      "niedoczynnoscTarczycy": 0, // Niedoczynność tarczycy [0-nie, 1 - tak]
+      "nadczynnoscTarczycy": 0, // Nadczynność tarczycy [0-nie, 1 - tak]
+      "zawalWywiad": 0, // Zawał serca w wywiadzie [0-nie, 1 - tak]
+      "migotaniePrzedsionkow": 0, // Migotanie przedsionków [0-nie, 1 - tak]
+      "nowotwor": 0, // Nowotwór [0-nie;1-tak]
+      "nowotworOpis": "brak", // Nowotwór - opisać rodzaj nowotworu i czy jest rozsiew
+      "niewydolnoscSerca": 0, // Niewydolność serca [0-nie;1-tak]
+      "przewleklaChorobaPluc": 0, // Przewlekła choroba płuc (POChP / choroba śródmiąższowa) [0-nie;1-tak]
+      "hr": 80, // HR (akcja serca) [wartość]
+      "hr110plus": 0, // HR>=110/min (akcja serca)  [0-nie;1-tak]
+      "sbp": 120, // SBP [wartość] (ciśnienie skurczowe krwi)
+      "sbp100minus": 0, // SBP<100mmHg [0-nie;1-tak] (ciśnienie skurczowe krwi)
+      "dbp": 80, // DBP [wartość] (ciśnienie rozkurczowe krwi)
+      "aminyPresyjneTyp": 0, // Aminy presyjne (noradrenalina / levonor; dobutamina / dobutrex, milrinon / corotrop, levosimendan, argipresyna)  [0-nie; 1- jedna amina presyjna; 2 - więcej, niż jedna amina presyjna]
+      "aminyOpis": "brak", // Aminy - jakie [tekst]
+      "spo2": 98, // SpO2 [wartość] (saturacja krwi tętniczej z pulsoksymetru)
+      "satO290minus": 0, // SatO2<90% [0-nie;1-tak] (saturacja krwi tętniczej z pulsoksymetru)
+      "tlenoterapiaTyp": 0, // Stosowana tlenoterapia [0-wąsy tlenowe, 1 - maska tlenowa prosta lub z rezerwuarem, 2 - NIV, HFNOT, 3 - wentylacja mechaniczna)
+      "czestoscOddechow": 16, // Częstość oddechów (wartość)
+      "czestoscOddechow30plus": 0, // Częstość oddechów >30/min [0-nie, 1 - tak]
+      "temperaturaC": 36.6, // Temperatura ciała w stopniach Celsjusza [wartość]
+      "splatanie": 0, // Splątanie / dezorientacja / zaburzona orientacja allopsychiczna lub autopsychiczna [0-nie, 1 - tak]
+      "udarKrwotoczny": 0, // Udar krwotoczny lub udar nieznanego poch. [0-nie; 1-tak]
+      "udarNiedokrwienny6mies": 0, // Udar niedokrwienny w ciągu ostatnich 6 mies.[0-nie; 1-tak]
+      "uszkodzenieOUN": 0, // Uszkodzenie lub nowotwór OUN [0-nie; 1-tak]
+      "powaznaOperacjaUraz14dni": 0, // Poważna operacja lub poważny uraz w ciągu ostatnich 14 dni [0-nie; 1-tak]
+      "aktywneKrwawienie": 0, // Aktywne krwawienie [0-nie; 1-tak]
+      "ryzykoKrwawienia": 0, // Znane ryzyko krwawienia [0-nie; 1-tak] (czy są obecne choroby / stany wymienione w kolumnach CS do DA)
+      "tia6mies": 0, // TIA (przejściowy napad niedokrwienia) w ciągu ostatnich 6 mies. [0-nie; 1-tak]
+      "leczeniePrzeciwkrzepliwe": 0, // Doustne leczenie przeciwkrzepliwe [0-nie; 1-tak]
+      "ciazaPorodTydzien": 0, // Ciąza lub okres 1 tygodnia po porodzie [0-nie; 1-tak]
+      "miejsceWkluciaNieUcisk": 0, // Miejsce wkłucia niemożliwe do ucisku [0-nie; 1-tak]
+      "urazResuscytacja": 0, // Uraz w przebiegu resustytacji [0-nie; 1-tak]
+      "oporneNadcisnienie": 0, // Oporne nadciśnienie tętnicze (SBP > 180 mmH) [0-nie; 1-tak]
+      "zaawansowanaChorobaWatroby": 0, // Zaawansowana choroba wątroby [0-nie; 1-tak]
+      "bakteryjneZapalenieWsierdzia": 0, // Bakteryjne zapalenie wsierdzia [0-nie; 1-tak]
+      "aktywnyWrzodTrawienny": 0, // Aktywny wrzód trawienny [0-nie; 1-tak]
+      "typAngioCT1": 0, // Typ wg angioCT 1 [1- zator typu jeździec / zator w podziale pnia płucnego; 0 - zator inny, niż jeździec]
+      "typAngioCTPrawa": 0, // Typ według angioCT - strona prawa (0-zatorowość centralna; 1 - zatorowość płatowa / segmentowa ; 2 - zatorowość obwodowa; 3 - brak zatoru po stronie prawej)
+      "typAngioCTLewa": 0, // Typ według angioCT - strona lewa  (0-zatorowość centralna; 1 - zatorowość płatowa / segmentowa ; 2 - zatorowość obwodowa; 3 - brak zatoru po stronie lewej)
+      "zawalPlucaZatorowosc": 0, // Czy jest obecny zawał płuca spowodowany zatorowością? (0-nie, 1 - tak)
+      "skrzeplinyPrawyPrzedsionek": 0, // Czy w opisie tomografii jest informacja na temat skrzeplin w prawym przedsionku lub prawej komorze? [0-brak informacji o skrzeplinach - nie opisano; 1 - stwierdzono brak skrzeplin; 2 - stwierdzono skrzepliny]
+      "stosunekKomoryCT": 1.0, // stosunek wymiaru prawej do lewej komory w angioCT
+      "baselineData": "2024-06-01", // Pierwszy dzień hospitalizacji (baseline) - data
+      "baselineGodzina": "08:00", // Pierwszy dzień hospitalizacji (baseline) - godzina pobrania
+      "troponinaHsT": 12.5, // troponina (hsT) [ng/L]
+      "ntproBNP": 1000, // NTproBNP [pg/mL]
+      "ddimer": 0.5, // D-dimer [ug/L]
+      "inr": 1.0, // INR
+      "aptt": 30.0, // APTT [s]
+      "fibrynogen": 3.5, // fibrynogen  (g/L)
+      "rbc": 4.5, // RBC (liczba erytrocytów) [10^6/uL]
+      "hgb": 13.5, // HGB (poziom hemoglobiny) [g/dL]
+      "hct": 40.0, // HCT (hematokryt)  [%]
+      "plt": 250, // PLT (liczba płytek krwi)  [10^3/uL]
+      "crp": 5.0, // CRP (białko C-reaktywne) [mg/L]
+      "alat": 25.0, // AlAT [U/l) (transaminaza alanina = aminotransferaza alaninowa)
+      "aspat": 22.0, // AspAT [U/l] (transaminaza asparaginianowa = aminotransferaza asparaginianowa)
+      "crea": 80.0, // CREA (poziom kreatyniny) [umol/L]
+      "gfr": 90.0, // GFR (wskaźnik przesączania kłębuszkowego) [ml/min/1,73m^2]
+      "lac": 1.2, // mleczany (LAC) [mmol/L]
+      "grupaKrwi": "A+", // GRUPA KRWI
+      "drugiDzienData": "2024-06-02", // Drugi dzień hospitalizacji - data
+      "drugiDzienGodzina": "08:00", // Drugi dzień hospitalizacji  - godzina pobrania
+      "drugiDzienTroponina": 13.0, // drugi dzień - troponina [ng/L]
+      "drugiDzienNtproBNP": 1100, // drugi dzień - NTproBNP [pg/mL]
+      "drugiDzienDdimer": 0.6, // drugi dzień - D-dimer [ug/L]
+      "drugiDzienFibrynogen": 3.6, // drugi dzień - fibrynogen [g/L]
+      "drugiDzienPlazminogen": 90.0, // drugi dzień - plazminogen [%]
+      "drugiDzienAlfa2Antyplazmina": 95.0, // drugi dzień - alfa-2-antyplazmina [%]
+      "drugiDzienInr": 1.1, // drugi dzień - INR
+      "drugiDzienAptt": 31.0, // drugi dzień - APTT [s]
+      "drugiDzienRbc": 4.6, // drugi dzień - RBC [10^6/uL]
+      "drugiDzienHgb": 13.6, // drugi dzień - HGB [g/dL]
+      "drugiDzienHct": 41.0, // drugi dzień - HCT [%]
+      "drugiDzienPlt": 255, // drugi dzień - PLT [10^3/uL]
+      "drugiDzienCrp": 5.5, // drugi dzień - CRP [mg/L]
+      "drugiDzienAlat": 26.0, // drugi dzień - AlAT [U/L]
+      "drugiDzienAspat": 23.0, // drugi dzień - AspAT [U/L]
+      "drugiDzienCrea": 82.0, // drugi dzień - CREA [umol/L]
+      "drugiDzienGfr": 91.0, // drugi dzień - GFR [ml/min/1,73m^2]
+      "drugiDzienLac": 1.3, // drugi dzień - LAC [mmol/L]
+      "ostatniDzienData": "2024-06-10", // Ostatni dzień hospitalizacji - data
+      "ostatniDzienGodzina": "08:00", // Ostatni dzień hospitalizacji (wypis) - godzina pobrania
+      "ostatniDzienTroponina": 10.0, // ostatni dzień - troponina [ng/L]
+      "ostatniDzienNtproBNP": 900, // ostatni dzień - NTproBNP [pg/mL]
+      "ostatniDzienDdimer": 0.4, // ostatni dzień - D-dimer [ug/L]
+      "ostatniDzienFibrynogen": 3.2, // ostatni dzień - fibrynogen [g/L]
+      "ostatniDzienPlazminogen": 88.0, // ostatni dzień - plazminogen [%]
+      "ostatniDzienAlfa2Antyplazmina": 93.0, // ostatni dzień - alfa-2-antyplazmina [%]
+      "ostatniDzienInr": 1.0, // ostatni dzień - INR
+      "ostatniDzienAptt": 30.0, // ostatni dzień - APTT [s]
+      "ostatniDzienRbc": 4.4, // ostatni dzień - RBC [10^6/uL]
+      "ostatniDzienHgb": 13.2, // ostatni dzień - HGB [g/dL]
+      "ostatniDzienHct": 39.0, // ostatni dzień - HCT [%]
+      "ostatniDzienPlt": 245, // ostatni dzień - PLT [10^3/uL]
+      "ostatniDzienCrp": 4.5, // ostatni dzień - CRP [mg/L]
+      "ostatniDzienAlat": 24.0, // ostatni dzień - AlAT [U/L]
+      "ostatniDzienAspat": 21.0, // ostatni dzień - AspAT [U/L]
+      "ostatniDzienCrea": 78.0, // ostatni dzień - CREA [umol/L]
+      "ostatniDzienGfr": 92.0, // ostatni dzień - GFR [ml/min/1,73m^2]
+      "ostatniDzienLac": 1.1 // ostatni dzień - LAC [mmol/L]
+    }
+    Odpowiadaj tylko JSON, bez żadnych dodatkowych komentarzy ani tekstu.

@@ -22,10 +22,12 @@ public class TextExtractor {
     public List<PersonData> extractPersonData(String text) {
         List<PersonData> results = new ArrayList<>();
 
+        //PESEL
         Pattern peselPattern = Pattern.compile("\\bP[ĘE]?[S5][EĘ]?[LŁ1I][^\\d\\n]{0,10}?(\\d{11})\\b", Pattern.CASE_INSENSITIVE);
         Matcher peselMatcher = peselPattern.matcher(text);
         String pesel = peselMatcher.find() ? peselMatcher.group(1) : "";
 
+        // Imię i nazwisko
         List<NamePatternInfo> namePatterns = List.of(
                 new NamePatternInfo(Pattern.compile("\\bimi[eę]\\s*i\\s*nazwisko\\s*:?\\s*=*\\s*([\\p{L}]+)\\s+([\\p{L}]+)", Pattern.CASE_INSENSITIVE), 1, 2),
                 new NamePatternInfo(Pattern.compile("\\bnazwisko\\s*i\\s*imi[eę]\\s*:?\\s*=*\\s*([\\p{L}]+)\\s+([\\p{L}]+)", Pattern.CASE_INSENSITIVE), 2, 1),
@@ -44,9 +46,11 @@ public class TextExtractor {
             }
         }
 
-        if (!pesel.isEmpty() || (!imie.isEmpty() && !nazwisko.isEmpty())) {
-            results.add(new PersonData(imie, nazwisko, pesel));
-        }
+//        if (!pesel.isEmpty() || (!imie.isEmpty() && !nazwisko.isEmpty())) {
+//            results.add(new PersonData(imie, nazwisko, pesel));
+//        }
+
+
 
         return results;
     }
